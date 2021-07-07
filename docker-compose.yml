@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+    frontend:
+        build: ./frontend/.
+        ports:
+            - "3000:8000"
+        volumes:
+            - ./frontend:/code
+        depends_on:
+            - backend
+        links: 
+            - backend
+        networks: 
+            - talha
+
+    backend:
+        build: ./backend/.
+        hostname: backend
+        ports:
+            - "1000:9000"
+        volumes:
+            - ./backend:/code
+        networks: 
+            - talha
+
+networks:
+    talha:
+        driver: "bridge"
