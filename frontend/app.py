@@ -2,13 +2,14 @@ from flask import Flask, render_template
 import requests
 import json
 
+URL =  'http://tram-backend-service.api:9000'
 
 app = Flask(__name__)
 
 @app.route('/')
 def start():
 
-    url = 'http://backend:9000'
+    url = URL
 
     r = requests.get(url)
 
