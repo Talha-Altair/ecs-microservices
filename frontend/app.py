@@ -9,10 +9,8 @@ app = Flask(__name__)
 @app.route('/')
 def start():
 
-    url = URL
-
     try:
-      r = requests.get(url)
+      r = requests.get(URL)
     except:
       r = requests.get('http://backend:9000')
 
