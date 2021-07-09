@@ -11,7 +11,10 @@ def start():
 
     url = URL
 
-    r = requests.get(url)
+    try:
+      r = requests.get(url)
+    except:
+      r = requests.get('http://backend:9000')
 
     num = json.loads(r.content)
 
